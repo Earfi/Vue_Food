@@ -1,66 +1,43 @@
-import { createRouter, createWebHistory } from "vue-router";
-import DefaultLayout from "../components/DefaultLayout.vue";
-import GuestLayout from "../components/GuestLayout.vue";
-import Home from "../views/Home.vue";
-import MealsByName from "../views/MealsByName.vue";
-import MealsByLetter from "../views/MealsByLetter.vue";
-import MealsByIngredients from "../views/MealsByIngredients.vue";
-import Ingredients from "../views/Ingredients.vue";
-import MealDetails from "../views/MealDetails.vue";
+import { createWebHistory,createRouter } from 'vue-router';
+import Home from "../views/Home.vue"
+import MealsDefaultList from "../components/MealsDefaultList.vue"
+import MealsByLetter from "../views/MealsByLetter.vue"
+import MealsDetail from "../views/MealsDetail.vue"
+import MealsByIngredient from "../views/MealsByIngredient.vue"
+
 
 const routes = [
-  {
-    path: "/",
-    component: DefaultLayout,
-    children: [
-      {
+    {
         path: "/",
-        name: "home",
-        component: Home,
-      },
-      {
-        path: "/by-name/:name?",
-        name: "byName",
-        component: MealsByName,
-      },
-      {
-        path: "/by-letter/:letter?",
-        name: "byLetter",
-        component: MealsByLetter,
-      },
-      {
-        path: "/ingredients",
-        name: "ingredients",
-        component: Ingredients,
-      },
-      {
-        path: "/by-ingredient/:ingredient?",
-        name: "byIngredient",
-        component: MealsByIngredients,
-      },
-      {
-        path: "/meal/:id?",
-        name: "mealDetails",
-        component: MealDetails,
-      }
-    ],
-  },
-  {
-    path: "/guest",
-    component: GuestLayout,
-    children:[
-      {
-        path:"",
-        name:"",
-        component:"",
-      }
-    ]
-  }
-];
+        component: MealsDefaultList,
+        children: [
+            {
+                path: "/",
+                name: "home",
+                component: Home
+            },
+            {
+                path: "/by-letter/:letter?",
+                name: "byLetter",
+                component: MealsByLetter
+            },
+            {
+                path: "/meals-detail/:id?",
+                name: "mealsDetail",
+                component: MealsDetail
+            },
+            {
+                path: "/meals-ingredient/:id?",
+                name: "mealsIngredient",
+                component: MealsByIngredient
+            }
+        ]
+    }
+]
 
 const router = createRouter({
-  history: createWebHistory(),
-  routes,
+    history:createWebHistory(),
+    routes,
 });
 
-export default router;
+export default router

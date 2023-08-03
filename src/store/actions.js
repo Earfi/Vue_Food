@@ -1,22 +1,15 @@
-import axiosClient from '../axiosClient';
+import axiosMeals from "../axiosMeals.js";
 
 export function searchMeals({commit},keyword){
-    axiosClient.get(`search.php?s=${keyword}`)
+    axiosMeals.get(`search.php?s=${keyword}`)
     .then(({data}) => {
-        commit('setSearchedMeals',data.meals)
+        commit('setSearchMeals',data.meals)
     })
 }
 
 export function searchMealsByLetter({commit},letter){
-    axiosClient.get(`search.php?f=${letter}`)
-    .then(({data}) => {
-        commit('setMealsByLetter',data.meals)
-    })
-}
-
-export function searchMealsByIngredient({commit},ing){
-    axiosClient.get(`filter.php?i=${ing}`)
-    .then(({data}) => {
-        commit('setMealsByIngredients',data.meals)
+    axiosMeals.get(`search.php?f=${letter}`)
+    .then(({data})=>{
+        commit('setSearchMealsByLetter',data.meals)
     })
 }

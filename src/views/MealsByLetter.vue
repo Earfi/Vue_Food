@@ -1,31 +1,40 @@
 <template>
-    <div>
-        <div class="flex justify-center gap-2 mt-2">
-            <RouterLink :to="{ name: 'byLetter', params: { letter } }" v-for="letter of letters" :key="letter">
-                {{ letter }}
-            </RouterLink>
+    <div class="h-full flex flex-col w-full">
+        <div class="h-16 flex justify-center items-center gap-4 shadow-lg bg-white">
+            <div v-for="letter of letters">
+                <RouterLink :to="{ name: 'byLetter', params: { letter } }">
+                    <h1 class=" font-bold cursor-pointer hover:text-red-500">{{ letter }}</h1>
+                </RouterLink>
+            </div>
         </div>
-
-        <Meals :meals="meals" />
+        <Meals :inputMealName="sendMeals" class="px-16 mt-8" />
     </div>
 </template>
-
+ 
 <script setup>
-import { computed, onMounted, watch } from 'vue';
-import store from '../store';
-import { useRoute } from 'vue-router';
+import { RouterLink, useRoute } from 'vue-router';
+import { computed, watch, onMounted } from 'vue';
 import Meals from '../components/Meals.vue';
+import store from '../store';
 
 const route = useRoute()
-const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split("");
-const meals = computed(() => store.state.mealsByLetter)
+const sendMeals = computed(() => store.state.mealsByLetter);
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 watch(route, () => {
-    store.dispatch('searchMealsByLetter', route.params.letter)
+    store.dispatch('searchMealsByLetter', route.params.letter);
 })
 
-onMounted(() => {
-    store.dispatch('searchMealsByLetter', route.params.letter)
+onMounted(route, () => {
+    store.dispatch('searchMealsByLetter', route.params.letter);
+})
+
+watch(() => {
+    const currentPath = window.location.pathname;
+    const location = currentPath[currentPath.length - 1]
+    store.dispatch('searchMealsByLetter', location);
+    // console.log(currentPath);
+    // console.log(location);
 })
 
 </script>

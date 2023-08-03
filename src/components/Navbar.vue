@@ -1,21 +1,34 @@
+<script setup>
+import { RouterLink } from 'vue-router';
+import 'remixicon/fonts/remixicon.css'
+
+
+</script>
+ 
 <template>
-    <header class="bg-white shadow h-16 flex justify-between items-stretch">
-        <router-link :to="{ name: 'home' }" class="inline-flex items-center h-full px-5">
-            Home
+    <header class="w-full h-16 flex justify-between items-center text-white shadow-lg fixed font-bold text-l bg-orange-400 
+        ">
+        <router-link :to="{ name: 'home' }" class=" ml-10">
+            FOOD
         </router-link>
-        <div class="flex items-center gap-1 ">
-            <router-link :to="{ name: 'byName' }"
-                class="inline-flex items-center px-2 h-full transition-colors  hover:bg-purple-200">
-                Search Meals
-            </router-link>
+        <div class="flex gap-16 items-center ">
             <router-link :to="{ name: 'byLetter' }"
-                class="inline-flex items-center px-2 h-full transition-colors hover:bg-purple-200">
-                Meals By Letter
-            </router-link>
-            <router-link :to="{ name: 'ingredients' }"
-                class="inline-flex items-center px-2 h-full transition-colors hover:bg-purple-200">
-                Meals By Ingredients
-            </router-link>
+                class="hover:text-white px-2 py-1 hover:bg-orange-300 hover:rounded-3xl">Menu
+                By Letter</router-link>
+            <router-link :to="{ name: 'mealsIngredient' }"
+                class="hover:text-white px-2 py-1 hover:bg-orange-300 hover:rounded-3xl">Menu
+                By
+                Ingredient</router-link>
+            <router-link :to="{ name: 'home' }"
+                class="hover:text-white px-2 py-1 hover:bg-orange-300 hover:rounded-3xl">Menu
+                By
+                Area</router-link>
+            <i class="ri-menu-line cursor-pointer"></i>
+            <router-link :to="{ name: 'home' }"
+                class="mr-8 bg-black px-2 py-1 rounded-3xl hover:bg-gray-100 hover:text-gray-400">SIGN
+                UP</router-link>
         </div>
     </header>
 </template>
+ 
+<style scoped></style>
