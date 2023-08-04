@@ -1,6 +1,7 @@
 <template>
-    <div class="h-full flex flex-col w-full">
-        <div class="h-16 flex justify-center items-center gap-4 shadow-lg bg-white">
+    <div class="h-full w-full flex flex-col">
+        <div
+            class="bg-white w-full h-16 pl-[350px] flex gap-4 justify-center items-center shadow-lg overflow-x-auto sm:pl-32 md:pl-0">
             <div v-for="letter of letters">
                 <RouterLink :to="{ name: 'byLetter', params: { letter } }">
                     <h1 class=" font-bold cursor-pointer hover:text-red-500">{{ letter }}</h1>

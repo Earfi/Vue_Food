@@ -1,9 +1,4 @@
-<script setup>
-import { RouterLink } from 'vue-router';
-import 'remixicon/fonts/remixicon.css'
-
-
-</script>
+<style scoped></style>
  
 <template>
     <header class="w-full h-16 flex justify-between items-center text-white shadow-lg fixed font-bold text-l bg-orange-400 
@@ -19,7 +14,7 @@ import 'remixicon/fonts/remixicon.css'
                 class="hover:text-white px-2 py-1 hover:bg-orange-300 hover:rounded-3xl">Menu
                 By
                 Ingredient</router-link>
-            <router-link :to="{ name: 'home' }"
+            <router-link :to="{ name: 'mealsArea' }"
                 class="hover:text-white px-2 py-1 hover:bg-orange-300 hover:rounded-3xl">Menu
                 By
                 Area</router-link>
@@ -31,4 +26,8 @@ import 'remixicon/fonts/remixicon.css'
     </header>
 </template>
  
-<style scoped></style>
+<script setup>
+import { RouterLink } from 'vue-router';
+import 'remixicon/fonts/remixicon.css'
+
+</script>

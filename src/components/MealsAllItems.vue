@@ -1,6 +1,6 @@
 <template>
-    <div
-        class="bg-white w-full rounded-xl h-80 overflow-hidden border-2 border-black hover:border-red-500 hover:shadow-2xl">
+    <div class="bg-white w-full h-80 rounded-xl overflow-hidden border-2 border-black hover:border-red-500 hover:shadow-2xl 
+        lg:h-96">
         <RouterLink :to="{ name: 'mealsDetail', params: { id: mealItem.idMeal } }">
             <img :src="mealItem.strMealThumb" :alt="mealItem.strMeal" class="h-4/6 w-full object-cover">
             <div class="px-4">
