@@ -3,5 +3,6 @@ export default {
     mealsByCategory:[], 
     mealsByLetter:[], 
     mealsByFilter:[],
+    mealsByCategory:[],
     mealsRandom:[],
 }

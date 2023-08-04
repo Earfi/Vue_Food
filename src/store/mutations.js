@@ -9,7 +9,12 @@ export function setSearchMealsByLetter(state,meals){
     state.mealsByLetter = meals || []
 }
 
-export function setFilterMeals(state,meals){
+export function setSearchMealsByCategory(state,meals){
+    state.mealsByCategory = meals || []
+    console.log(state.FilterMealsByFilter);
+}
+
+export function setFilterMealsList(state,meals){
     state.mealsByFilter = meals || []
 }
 

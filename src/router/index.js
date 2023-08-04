@@ -35,6 +35,21 @@ const routes = [
                 path: "/meals-area/:area?",
                 name: "mealsArea",
                 component: MealsByArea
+            },
+            {
+                path: "/by-ingredient/:ingredient?",
+                name: "byIngredient",
+                component: Home
+            },
+            {
+                path: "/by-area/:area?",
+                name: "byArea",
+                component: Home
+            },
+            {
+                path: "/by-category/:category?",
+                name: "byCategory",
+                component: Home
             }
         ]
     }

@@ -22,11 +22,22 @@ export function searchMealsByLetter({commit},letter){
   }
 }
 
-export function filterMeals({commit},letter){
+export function searchMealsByCategory({commit},word){
+    try{
+        axiosMeals.get(`filter.php?c=${word}`)
+        .then(({data})=>{
+            commit('setSearchMealsByCategory',data.meals)
+        })
+    }catch(error){
+    console.error(`Error while fetching Search meals: ${word} : `, error);
+    }
+}
+
+export function filterMealsList({commit},letter){
     try{
         axiosMeals.get(`list.php?${letter}=list`)
         .then(({data})=>{
-            commit('setFilterMeals',data.meals)
+            commit('setFilterMealsList',data.meals)
         })
     }catch(error){
     console.error(`Error while fetching Filter meals: ${letter} : `, error);
