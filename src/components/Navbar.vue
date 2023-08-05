@@ -1,5 +1,5 @@
 <style  scoped>
-html {
+template {
     transition: .5s ease all;
 }
 
@@ -15,11 +15,15 @@ li .link {
 li .link:hover {
     background: rgba(255, 165, 30, 0.779);
 }
+
+.dropdown-nav {
+    right: -40px;
+    transition: right 0.5s ease;
+}
 </style>
  
 <template>
-    <header :class="{ 'scrolled-nav': scrollPosition }"
-        class="bg-gradient-to-r from-orange-400 to-orange-300 z-50 w-full fixed ">
+    <header class="bg-gradient-to-r from-orange-400 to-orange-300 z-50 w-full fixed ">
         <nav class="relative flex flex-row justify-between px-3 py-0 w-[90%] mx-auto my-0 h-14 md:h-16">
             <div>
                 <router-link :to="{ name: 'home' }"><img src="../assets/logo.jpg" class="w-12 pt-1 md:pt-2"
@@ -32,9 +36,9 @@ li .link:hover {
                 <li><router-link :to="{ name: 'mealsArea' }" class="link">Menu By Area</router-link></li>
             </ul>
             <!-- mobile -->
-            <ul v-show="moblieMode"
+            <ul v-if="moblieMode"
                 class="dropdown-nav absolute flex flex-col gap-10 h-[100vh] w-5/6 bg-black text-center pt-[70px] sm:w-3/5 md:hidden"
-                :class="[moblieMode ? 'right-[-40px]' : 'right-[-100%]']">
+                :class="[moblieMode ? '' : 'right-[-100%]']">
                 <li><router-link :to="{ name: 'byLetter' }" class="link" @click="closeBar()">Menu By Letter</router-link>
                 </li>
                 <li><router-link :to="{ name: 'mealsIngredient' }" class="link" @click="closeBar()">Menu By
@@ -43,8 +47,7 @@ li .link:hover {
                 </li>
             </ul>
             <div class="icon mt-4 absolute top-0 right-6 h-full text-white ">
-                <i @click="toggleMobileNav()" class="ri-menu-line cursor-pointer text-2xl md:hidden"
-                    :class="{ 'icon-active': moblieNav }"></i>
+                <i @click="toggleMobileNav()" class="ri-menu-line cursor-pointer text-2xl md:hidden"></i>
             </div>
         </nav>
     </header>
@@ -55,7 +58,6 @@ import 'remixicon/fonts/remixicon.css'
 import { RouterLink } from 'vue-router';
 import { ref } from 'vue';
 
-const scrollPosition = ref(null);
 const moblieMode = ref(null);
 
 function toggleMobileNav() {
