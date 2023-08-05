@@ -9,3 +9,8 @@ https://www.figma.com/file/IgresC2IJoFzH0JeboD8yf/Food?type=design&node-id=0-1&m
 <li>02/08/2566 or 02/08/2023 </li>
 <h3>finish project</h3>
 <li></li>
+
+## เหลือ
+<li><b>Category List every click</b></li>
+<li><b>Sidebar transition</b></li>
+<li><b>Category md</b></li>
