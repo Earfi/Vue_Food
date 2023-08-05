@@ -37,7 +37,7 @@ li .link:hover {
             </ul>
             <!-- mobile -->
             <ul v-if="moblieMode"
-                class="dropdown-nav absolute flex flex-col gap-10 h-[100vh] w-5/6 bg-black text-center pt-[70px] sm:w-3/5 md:hidden"
+                class="dropdown-nav absolute flex flex-col gap-10 h-[100vh] w-[100%] bg-black text-center pt-[70px] sm:w-3/5 md:hidden"
                 :class="[moblieMode ? '' : 'right-[-100%]']">
                 <li><router-link :to="{ name: 'byLetter' }" class="link" @click="closeBar()">Menu By Letter</router-link>
                 </li>

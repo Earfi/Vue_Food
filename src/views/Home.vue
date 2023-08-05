@@ -1,8 +1,10 @@
+<style scoped></style>
+
 <template>
     <Meals v-if="vueSend" :inputMealName="sendMeals" class="px-16" />
     <Meals v-if="vueSendArea" :inputMealName="sendMealsArea" class="px-16" />
     <i v-if="retureButton"
-        class="ri-arrow-drop-left-line text-7xl text-gray-500 absolute left-0 top-[105px] sm:top-20 lg:left-64 cursor-pointer hover:text-gray-200"
+        class="ri-arrow-drop-left-line text-7xl text-gray-500 absolute left-0 top-[105px] sm:top-20  md:left-[16%] cursor-pointer hover:text-gray-200"
         @click="router.go(-1)"></i>
 </template>
  
