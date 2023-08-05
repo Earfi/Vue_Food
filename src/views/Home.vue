@@ -1,7 +1,6 @@
 <template>
     <Meals v-if="vueSend" :inputMealName="sendMeals" class="px-16" />
     <Meals v-if="vueSendArea" :inputMealName="sendMealsArea" class="px-16" />
-    <Meals v-if="vueSendCategory" :inputMealName="sendMealsCategory" class="px-16" />
     <i v-if="retureButton"
         class="ri-arrow-drop-left-line text-7xl text-gray-500 absolute left-0 top-[105px] sm:top-20 lg:left-64 cursor-pointer hover:text-gray-200"
         @click="router.go(-1)"></i>
@@ -26,42 +25,42 @@ const vueSendCategory = ref(false);
 const defaultLetter = "A"
 
 onMounted(async () => {
-    if (store.searchedMeals == "") {
-        store.dispatch('searchMeals', defaultLetter)
+    // if (store.searchedMeals == "") {
+    //     store.dispatch('searchMeals', defaultLetter)
 
-        vueSend.value = true
-        retureButton.value = false
+    //     vueSend.value = true
+    //     retureButton.value = false
+    //     vueSendArea.value = false
+    //     vueSendCategory.value = false
+
+    // } else
+    if (window.location.pathname.includes("by-ingredient")) {
+        store.dispatch('searchMeals', route.params.ingredient)
+
+        retureButton.value = true
         vueSendArea.value = false
+        vueSend.value = true
         vueSendCategory.value = false
 
-    } else
-        if (window.location.pathname.includes("by-ingredient")) {
-            store.dispatch('searchMeals', route.params.ingredient)
+    } else if (window.location.pathname.includes("by-area")) {
+        const response = await axiosMeals.get(`filter.php?a=${route.params.area}`)
+        sendMealsArea.value = response.data.meals
 
-            retureButton.value = true
-            vueSendArea.value = false
-            vueSend.value = true
-            vueSendCategory.value = false
+        retureButton.value = true
+        vueSendArea.value = true
+        vueSend.value = false
+        vueSendCategory.value = false
 
-        } else if (window.location.pathname.includes("by-area")) {
-            const response = await axiosMeals.get(`filter.php?a=${route.params.area}`)
-            sendMealsArea.value = response.data.meals
+    } else if (window.location.pathname.includes("by-category")) {
+        store.dispatch('searchMealsByCategory', route.params.category);
+        // const response = await axiosMeals.get(`filter.php?c=${route.params.category}`)
+        // sendMealsCategory.value = response.data.meals
 
-            retureButton.value = true
-            vueSendArea.value = true
-            vueSend.value = false
-            vueSendCategory.value = false
-
-        } else if (window.location.pathname.includes("by-category")) {
-            store.dispatch('searchMealsByCategory', route.params.category);
-            // const response = await axiosMeals.get(`filter.php?c=${route.params.category}`)
-            // sendMealsCategory.value = response.data.meals
-
-            vueSendCategory.value = true
-            retureButton.value = false
-            vueSendArea.value = false
-            vueSend.value = false
-        }
+        vueSendCategory.value = true
+        retureButton.value = false
+        vueSendArea.value = false
+        vueSend.value = false
+    }
 })
 
 </script>

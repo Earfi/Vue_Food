@@ -22,7 +22,8 @@ li .link:hover {
         class="bg-gradient-to-r from-orange-400 to-orange-300 z-50 w-full fixed ">
         <nav class="relative flex flex-row justify-between px-3 py-0 w-[90%] mx-auto my-0 h-14 md:h-16">
             <div>
-                <img src="../assets/logo.jpg" class="w-12 pt-1 md:pt-2" alt="logo">
+                <router-link :to="{ name: 'home' }"><img src="../assets/logo.jpg" class="w-12 pt-1 md:pt-2"
+                        alt="logo"></router-link>
             </div>
             <!-- no mobile -->
             <ul class="hidden flex-row items-center gap-8 md:flex">

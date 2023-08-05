@@ -5,7 +5,7 @@ import MealsByLetter from "../views/MealsByLetter.vue"
 import MealsDetail from "../views/MealsDetail.vue"
 import MealsByIngredient from "../views/MealsByIngredient.vue"
 import MealsByArea from "../views/MealsByArea.vue"
-
+import MealsByCategory from "../views/MealsByCategory.vue"
 const routes = [
     {
         path: "/",
@@ -49,7 +49,7 @@ const routes = [
             {
                 path: "/by-category/:category?",
                 name: "byCategory",
-                component: Home
+                component: MealsByCategory
             }
         ]
     }

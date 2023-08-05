@@ -14,17 +14,22 @@
  
 <script setup>
 import { RouterLink, useRoute } from 'vue-router';
-import { computed, watch, onMounted } from 'vue';
+import { computed, watch, onMounted, onBeforeMount } from 'vue';
 import Meals from '../components/Meals.vue';
 import store from '../store';
 
-const route = useRoute()
+const route = useRoute();
 const sendMeals = computed(() => store.state.mealsByLetter);
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+// const defaultLetter = "A";
 
 watch(route, () => {
     store.dispatch('searchMealsByLetter', route.params.letter);
 })
+
+// onBeforeMount(() => {
+//     store.dispatch('searchMealsByLetter', defaultLetter)
+// })
 
 onMounted(route, () => {
     store.dispatch('searchMealsByLetter', route.params.letter);
@@ -34,8 +39,6 @@ watch(() => {
     const currentPath = window.location.pathname;
     const location = currentPath[currentPath.length - 1]
     store.dispatch('searchMealsByLetter', location);
-    // console.log(currentPath);
-    // console.log(location);
 })
 
 </script>
