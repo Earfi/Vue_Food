@@ -1,5 +1,5 @@
 <style scoped></style>
- 
+ <!-- lg -->
 <template>
     <div class=" bg-white h-full w-2/12 text-center shadow-2xl">
         <h1 class="pb-4 pt-2 font-bold text-2xl border-b-2">Category</h1>
