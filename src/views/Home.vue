@@ -9,7 +9,7 @@
 </template>
  
 <script setup>
-import { computed, onMounted, ref, watch } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import store from '../store';
 import Meals from '../components/Meals.vue';
 import { useRoute } from 'vue-router';

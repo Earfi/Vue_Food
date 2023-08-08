@@ -1,4 +1,5 @@
 <template>
+    <Category class="w-full mt-6 mb-5 shadow-md block md:hidden" />
     <div class="h-full w-full flex flex-col">
         <div
             class="bg-white w-full h-16 pl-[350px] flex gap-4 justify-center items-center shadow-lg overflow-x-auto sm:pl-32 md:pl-14 lg:pl-0">
@@ -14,9 +15,10 @@
  
 <script setup>
 import { RouterLink, useRoute } from 'vue-router';
-import { computed, watch, onMounted, onBeforeMount } from 'vue';
+import { computed, watch, onMounted } from 'vue';
 import Meals from '../components/Meals.vue';
 import store from '../store';
+import Category from '../components/Category.vue';
 
 const route = useRoute();
 const sendMeals = computed(() => store.state.mealsByLetter);

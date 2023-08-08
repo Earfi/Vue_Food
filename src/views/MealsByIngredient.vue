@@ -13,6 +13,7 @@
 </style>
 
 <template>
+    <Category class="w-full mt-6 mb-5 shadow-md block md:hidden" />
     <div class="allItem mt-5 pl-8 pr-8 w-full grid gap-5 grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         <div v-for="ingredient of ingredients" :key="ingredient.idIngredient" class="w-full grid ">
             <RouterLink :to="{ name: 'byIngredient', params: { ingredient: ingredient.strIngredient } }"
@@ -26,6 +27,7 @@
 <script setup>
 import { computed, onMounted } from 'vue';
 import store from '../store';
+import Category from '../components/Category.vue';
 
 const ingredients = computed(() => store.state.mealsByFilter);
 const letter = "i";
