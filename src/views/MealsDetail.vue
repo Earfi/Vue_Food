@@ -60,13 +60,10 @@ import store from '../store';
 
 const route = useRoute();
 const meals = ref([]);
-// const randomMeals = computed(() => store.state.randomMeals);
-// console.log(randomMeals.value);
 
 onMounted(async () => {
     window.scrollTo(0, 0);
     const response = await axiosMeals.get(`lookup.php?i=${route.params.id}`)
-    // console.log(response.data);
     meals.value = response.data.meals[0]
 
     store.dispatch('mealsRandom5', 5)

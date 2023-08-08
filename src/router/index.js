@@ -37,6 +37,11 @@ const routes = [
                 component: MealsByArea
             },
             {
+                path: "/by-category/:category?",
+                name: "byCategory",
+                component: MealsByCategory
+            },
+            {
                 path: "/by-ingredient/:ingredient?",
                 name: "byIngredient",
                 component: Home
@@ -45,11 +50,6 @@ const routes = [
                 path: "/by-area/:area?",
                 name: "byArea",
                 component: Home
-            },
-            {
-                path: "/by-category/:category?",
-                name: "byCategory",
-                component: MealsByCategory
             }
         ]
     }
