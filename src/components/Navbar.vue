@@ -21,21 +21,21 @@ li .link:hover {
                     <img src="../assets/logo.jpg" class="w-12 pt-1 md:pt-2 rounded-3xl" alt="logo">
                 </router-link>
             </div>
+            <div class="icon flex mt-4 absolute top-0 right-6 h-full text-white ">
+                <i @click="toggleMobileNav" class="ri-menu-line cursor-pointer text-2xl md:hidden"></i>
+            </div>
             <ul class="h-[100vh] transition-all ease-in-out w-[70%] relative right-[-10%] bg-black flex flex-col gap-8 text-center pt-20 md:flex-row md:h-full md:bg-transparent md:items-center md:gap-8 md:justify-end md:w-full md:pt-0 md:right-0"
-                :class="moblieMode ? 'right-[-1000%]' : 'right-[-100%]'">
-                <i v-if="!moblieMode"
+                :class="mobileMode ? 'right-[-10%]' : 'right-[-1000%]'">
+                <i v-if="mobileMode"
                     class="ri-close-circle-line absolute text-3xl top-5 left-5 text-gray-200 cursor-pointer hover:text-gray-500 md:hidden"
-                    @click="clearMoblieMode()"></i>
-                <li><router-link :to="{ name: 'byLetter' }" class="link" @click="clearMoblieMode()">Menu By
+                    @click="clearMobileMode"></i>
+                <li><router-link :to="{ name: 'byLetter' }" class="link" @click="clearMobileMode">Menu By
                         Letter</router-link></li>
-                <li><router-link :to="{ name: 'mealsIngredient' }" class="link" @click="clearMoblieMode()">Menu By
+                <li><router-link :to="{ name: 'mealsIngredient' }" class="link" @click="clearMobileMode">Menu By
                         Ingredient</router-link></li>
-                <li><router-link :to="{ name: 'mealsArea' }" class="link" @click="clearMoblieMode()">Menu By
+                <li><router-link :to="{ name: 'mealsArea' }" class="link" @click="clearMobileMode">Menu By
                         Area</router-link></li>
             </ul>
-            <div v-if="moblieMode" class="icon mt-4 absolute top-0 right-6 h-full text-white ">
-                <i @click="toggleMobileNav()" class="ri-menu-line cursor-pointer text-2xl md:hidden"></i>
-            </div>
         </nav>
     </header>
 </template>
@@ -45,36 +45,16 @@ import 'remixicon/fonts/remixicon.css'
 import { RouterLink } from 'vue-router';
 import { ref } from 'vue';
 
-const moblieMode = ref(null);
+const mobileMode = ref(false); // แก้ชื่อตัวแปรเป็น mobileMode แทน moblieMode
 
 function toggleMobileNav() {
-    this.moblieMode = !this.moblieMode;
+    mobileMode.value = !mobileMode.value; // แก้ให้ mobileMode แทน moblieMode
+    console.log(mobileMode.value);
 }
 
-function clearMoblieMode() { this.moblieMode = !this.moblieMode; }
-
-if (window.innerWidth <= 768) {
-    moblieMode.value = true;
-} else {
-    moblieMode.value = false;
+function clearMobileMode() { // แก้ชื่อฟังก์ชันเป็น clearMobileMode แทน clearMoblieMode
+    mobileMode.value = false; // แก้ให้ mobileMode แทน moblieMode
+    console.log(mobileMode.value);
 }
-
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
