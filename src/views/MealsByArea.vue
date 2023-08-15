@@ -25,14 +25,14 @@
 </template>
 
 <script setup>
-import { computed, onMounted } from 'vue';
+import { computed, onBeforeMount } from 'vue';
 import store from '../store';
 import Category from '../components/Category.vue';
 
 const areas = computed(() => store.state.mealsByFilter);
 const letter = "a";
 
-onMounted(() => {
+onBeforeMount(() => {
     store.dispatch('filterMealsList', letter);
 })
 </script>

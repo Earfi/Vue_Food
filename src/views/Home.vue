@@ -9,7 +9,7 @@
 </template>
  
 <script setup>
-import { computed, onMounted, ref } from 'vue';
+import { computed, ref, onBeforeMount } from 'vue';
 import store from '../store';
 import Meals from '../components/Meals.vue';
 import { useRoute } from 'vue-router';
@@ -23,7 +23,7 @@ const retureButton = ref(false);
 const vueSend = ref(true);
 const vueSendArea = ref(false);
 
-onMounted(async () => {
+onBeforeMount(async () => {
     if (window.location.pathname.includes("by-ingredient")) {
         store.dispatch('searchMeals', route.params.ingredient)
 

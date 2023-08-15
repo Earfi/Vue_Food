@@ -52,7 +52,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
+import { ref, onBeforeMount } from 'vue';
 import { useRoute } from 'vue-router';
 import axiosMeals from '../axiosMeals';
 import router from '../router';
@@ -61,7 +61,7 @@ import store from '../store';
 const route = useRoute();
 const meals = ref([]);
 
-onMounted(async () => {
+onBeforeMount(async () => {
     window.scrollTo(0, 0);
     const response = await axiosMeals.get(`lookup.php?i=${route.params.id}`)
     meals.value = response.data.meals[0]

@@ -15,7 +15,7 @@
  
 <script setup>
 import { RouterLink, useRoute } from 'vue-router';
-import { computed, watch, onMounted } from 'vue';
+import { computed, watch, onBeforeMount } from 'vue';
 import Meals from '../components/Meals.vue';
 import store from '../store';
 import Category from '../components/Category.vue';
@@ -28,9 +28,10 @@ watch(route, () => {
     store.dispatch('searchMealsByLetter', route.params.letter);
 })
 
-onMounted(route, () => {
+onBeforeMount(route, () => {
     store.dispatch('searchMealsByLetter', route.params.letter);
 })
+
 
 watch(() => {
     const currentPath = window.location.pathname;

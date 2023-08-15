@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted, watch } from 'vue';
+import { computed, onBeforeMount, watch } from 'vue';
 import store from '../store';
 import Meals from '../components/Meals.vue';
 import { useRoute } from 'vue-router';
@@ -17,7 +17,7 @@ import Category from '../components/Category.vue';
 const route = useRoute();
 const sendMealsCategory = computed(() => store.state.mealsByCategory);
 
-onMounted(async () => {
+onBeforeMount(async () => {
     store.dispatch('searchMealsByCategory', route.params.category);
 })
 
