@@ -45,16 +45,14 @@ import 'remixicon/fonts/remixicon.css'
 import { RouterLink } from 'vue-router';
 import { ref } from 'vue';
 
-const mobileMode = ref(false); // แก้ชื่อตัวแปรเป็น mobileMode แทน moblieMode
+const mobileMode = ref(false); 
 
 function toggleMobileNav() {
-    mobileMode.value = !mobileMode.value; // แก้ให้ mobileMode แทน moblieMode
-    console.log(mobileMode.value);
+    mobileMode.value = !mobileMode.value; 
 }
 
-function clearMobileMode() { // แก้ชื่อฟังก์ชันเป็น clearMobileMode แทน clearMoblieMode
-    mobileMode.value = false; // แก้ให้ mobileMode แทน moblieMode
-    console.log(mobileMode.value);
+function clearMobileMode() { 
+    mobileMode.value = false; 
 }
 </script>
 
