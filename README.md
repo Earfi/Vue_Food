@@ -10,5 +10,5 @@ https://www.figma.com/file/IgresC2IJoFzH0JeboD8yf/Food?type=design&node-id=0-1&m
 </div>
 
 ## Test
-<h3><b>API Outage , Service Outage</b></h3>
+<h3><b>API Outage , Service Outage (API ตอนนี้ใช้ไม่ได้)</b></h3>
 https://poetic-kangaroo-562e7c.netlify.app/
